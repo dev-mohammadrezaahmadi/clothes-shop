@@ -1,5 +1,5 @@
 import { HomePage } from '../styles/Home.styles';
-import DirectoryMenu from '../components/directory/directory.component'
+import DirectoryMenu from '../components/directory/Directory.component'
 
 export default function Home() {
   return (
