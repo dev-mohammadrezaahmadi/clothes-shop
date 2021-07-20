@@ -1,20 +1,24 @@
 import React, { ReactNode } from "react";
-import styles from "./CustomButton.styles.module.scss";
-
-interface CustomButtonProps {
+import { StyledCustomButton } from './CustomButton.styles'
+export interface CustomButtonProps {
 	children: ReactNode;
 	type?: "submit" | "reset" | "button";
+	onClick?: () => any;
+	isGoogleSignIn?: boolean;
+	inverted?: boolean;
 }
+
+
 
 const CustomButton: React.FC<CustomButtonProps> = ({
 	children,
-	...otherProps
+	...props
 }) => {
+
 	return (
-		<button className={styles.custom_button} {...otherProps}>
-			{children}
-		</button>
-	);
+		<StyledCustomButton {...props}>{children}</StyledCustomButton>
+	)
+
 };
 
 export default CustomButton;
