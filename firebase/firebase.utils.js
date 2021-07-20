@@ -3,15 +3,17 @@ import "firebase/firestore";
 import "firebase/auth";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyBLZYvRgpkzA1aN5zmU9biYs3KS8XzvDbs",
+	apiKey: process.env.NEXT_PUBLIC_API_KEY,
 	authDomain: "clothes-shop-database.firebaseapp.com",
 	projectId: "clothes-shop-database",
 	storageBucket: "clothes-shop-database.appspot.com",
-	messagingSenderId: "489953195870",
-	appId: "1:489953195870:web:aafc452b31540b2e6a41cf",
+	messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+	appId: process.env.NEXT_PUBLIC_APP_ID,
 };
 
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+	firebase.initializeApp(firebaseConfig);
+}
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

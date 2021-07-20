@@ -1,7 +1,12 @@
 import Link from 'next/link'
 import styles from './Header.styles.module.scss'
 import Image from 'next/image'
+import { UserContext } from '../../context/UserContext'
+import React from 'react';
+import { auth } from '../../firebase/firebase.utils';
+
 const Header = () => {
+    const { user } = React.useContext(UserContext)
     return (
         <div className={styles.header}>
             <Link passHref href="/">
@@ -15,11 +20,20 @@ const Header = () => {
                         SHOP
                     </a>
                 </Link>
-                <Link href='/signin'>
-                    <a className={styles.option}>
-                        SIGN IN
-                    </a>
-                </Link>
+                {
+                    user ? (
+                        <div className={styles.option} onClick={() => auth.signOut()}>
+                            SIGN OUT
+                        </div>
+                    ) : (
+                        <Link href='/signin'>
+                            <a className={styles.option}>
+                                SIGN IN
+                            </a>
+                        </Link>
+                    )
+                }
+
                 <Link href='/shop'>
                     <a className={styles.option}>
                         CONTACT
