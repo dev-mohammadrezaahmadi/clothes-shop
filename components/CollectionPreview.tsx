@@ -1,6 +1,6 @@
-import { ShopDataItemsType } from "../../data/shop.data";
-import CollectionItem from "../collection-item/CollectionItem.component";
-import styles from "./CollectionPreview.styles.module.scss";
+import { ShopDataItemsType } from "../data/shop.data";
+import CollectionItem from "./CollectionItem";
+import styles from "../styles/CollectionPreview.module.scss";
 
 interface CollectionPreviewProps {
 	title: string;

@@ -1,25 +1,11 @@
 import styled from "styled-components";
 
-interface MenuItemProps {
-	imageUrl: string;
+interface StyledMenuItemProps {
 	size?: string;
-	title: string;
-	className?: string;
+	imageUrl: string;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ className, title }) => {
-	return (
-		<div className={className}>
-			<div className="background-image" />
-			<div className="content">
-				<div className="title">{title.toUpperCase()}</div>
-				<div className="subtitle">SHOP NOW</div>
-			</div>
-		</div>
-	);
-};
-
-export default styled(MenuItem)`
+export const StyledMenuItem = styled.div<StyledMenuItemProps>`
 	min-width: 30%;
 	height: ${({ size }) => (size === "large" ? "480px" : "360px")};
 	flex: 1 1 auto;

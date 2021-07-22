@@ -1,4 +1,4 @@
-import Header from '../header/Header.component';
+import Header from '../Header';
 
 const Layout: React.FC = ({ children }) => {
     return (

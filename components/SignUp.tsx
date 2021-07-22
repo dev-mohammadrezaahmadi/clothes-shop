@@ -1,11 +1,11 @@
 import React from 'react'
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils'
-import FormInput from '../form-input/FormInput.component'
-import CustomButton from '../custom-button/CustomButton.component'
-import styles from './SignUp.styles.module.scss'
+import { auth, createUserProfileDocument } from '../firebase/firebase.utils'
 import toast from 'react-hot-toast'
+import FormInput from './FormInput'
+import CustomButton from './CustomButton'
+import styles from '../styles/SignUp.module.scss'
 
-const SignUp = () => {
+const SignUp: React.FC = () => {
     const [userCredential, setUserCredential] = React.useState({
         displayName: '',
         email: '',

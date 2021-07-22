@@ -1,27 +1,10 @@
 import styled from "styled-components";
-import { ShopDataItemsType } from "../../data/shop.data";
 
-interface CollectionItemProps extends ShopDataItemsType {
-	className?: string;
+interface StyledCollectionItemProps {
+	imageUrl: string | null;
 }
 
-const CollectionItem: React.FC<CollectionItemProps> = ({
-	className,
-	name,
-	price,
-}) => {
-	return (
-		<div className={className}>
-			<div className="image" />
-			<div className="collection-footer">
-				<span className="name">{name}</span>
-				<span className="price">{price}</span>
-			</div>
-		</div>
-	);
-};
-
-export default styled(CollectionItem)`
+export const StyledCollectionItem = styled.div<StyledCollectionItemProps>`
 	width: 22%;
 	display: flex;
 	flex-direction: column;

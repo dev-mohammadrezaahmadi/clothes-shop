@@ -1,11 +1,11 @@
 import React from "react";
-import FormInput from "../form-input/FormInput.component";
-import CustomButton from "../custom-button/CustomButton.component";
-import styles from "./SignIn.styles.module.scss";
-import { auth, signInWithGoogle } from '../../firebase/firebase.utils'
+import { auth, signInWithGoogle } from '../firebase/firebase.utils'
+import FormInput from "./FormInput";
+import CustomButton from "./CustomButton";
+import styles from "../styles/SignIn.module.scss";
 
 
-const SignIn = () => {
+const SignIn: React.FC = () => {
 
 	const [userCredential, setUserCredential] = React.useState({
 		email: "",

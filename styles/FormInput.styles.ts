@@ -1,31 +1,9 @@
-import React from "react";
 import styled, { css } from "styled-components";
 
-interface FormInputProps {
-	onChange: React.ChangeEventHandler<HTMLInputElement>;
-	name: string;
-	type: string;
+interface StyledFormInputProps {
 	value: string;
-	label: string;
-	required?: boolean;
-	className?: string;
 }
 
-const FormInput: React.FC<FormInputProps> = ({
-	className,
-	onChange,
-	label,
-	...otherProps
-}) => {
-	return (
-		<div className={`group__${className}`}>
-			<input className={"form-input"} onChange={onChange} {...otherProps} />
-			{label ? <label className={"form-input-label"}>{label}</label> : null}
-		</div>
-	);
-};
-
-// Styles
 const subColor = "grey";
 const mainColor = "black";
 const shrink = css`
@@ -34,7 +12,7 @@ const shrink = css`
 	top: -14px;
 `;
 
-const StyledFormInput = styled(FormInput)`
+export const StyledFormInput = styled.div<StyledFormInputProps>`
 	position: relative;
 	margin: 45px 0;
 
@@ -76,8 +54,6 @@ const StyledFormInput = styled(FormInput)`
 	}
 
 	.form-input-label {
-		${(props) => (props.value.length ? shrink : "")}
+		${({ value }) => (value.length ? shrink : "")}
 	}
 `;
-
-export default StyledFormInput;

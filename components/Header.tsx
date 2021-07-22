@@ -1,11 +1,11 @@
-import Link from 'next/link'
-import styles from './Header.styles.module.scss'
-import Image from 'next/image'
-import { UserContext } from '../../context/UserContext'
 import React from 'react';
-import { auth } from '../../firebase/firebase.utils';
+import Link from 'next/link'
+import Image from 'next/image'
+import { auth } from '../firebase/firebase.utils';
+import { UserContext } from '../context/UserContext'
+import styles from '../styles/Header.module.scss'
 
-const Header = () => {
+const Header: React.FC = () => {
     const { user } = React.useContext(UserContext)
     return (
         <div className={styles.header}>

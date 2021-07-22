@@ -1,15 +1,11 @@
-import { useState } from 'react'
-import styled from "styled-components"
+import React from 'react'
+import MenuItem from './MenuItem'
 
-import MenuItem from '../menu-item/MenuItem.component'
-
-interface DirectoryProps {
-    className?: string
-}
+import styles from '../styles/Directory.module.scss'
 
 
-const Directory: React.FC<DirectoryProps> = ({ className }) => {
-    const [items, setItems] = useState([{
+const Directory: React.FC = () => {
+    const [items, setItems] = React.useState([{
         title: 'hats',
         imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
         id: 1
@@ -38,7 +34,7 @@ const Directory: React.FC<DirectoryProps> = ({ className }) => {
     }])
 
     return (
-        <div className={className}>
+        <div className={styles.directory}>
             {
                 items.map(({ title, imageUrl, id, size }) => (
                     <MenuItem key={id} imageUrl={imageUrl} size={size} title={title} />
@@ -48,9 +44,4 @@ const Directory: React.FC<DirectoryProps> = ({ className }) => {
     )
 }
 
-export default styled(Directory)`
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-`
+export default Directory;
