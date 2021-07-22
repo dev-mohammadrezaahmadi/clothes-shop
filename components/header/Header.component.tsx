@@ -26,7 +26,7 @@ const Header = () => {
                             SIGN OUT
                         </div>
                     ) : (
-                        <Link href='/signin'>
+                        <Link href='/enter'>
                             <a className={styles.option}>
                                 SIGN IN
                             </a>
