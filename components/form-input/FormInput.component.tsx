@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 interface FormInputProps {
-	handleChange: React.ChangeEventHandler<HTMLInputElement>;
+	onChange: React.ChangeEventHandler<HTMLInputElement>;
 	name: string;
 	type: string;
 	value: string;
@@ -13,13 +13,13 @@ interface FormInputProps {
 
 const FormInput: React.FC<FormInputProps> = ({
 	className,
-	handleChange,
+	onChange,
 	label,
 	...otherProps
 }) => {
 	return (
 		<div className={`group__${className}`}>
-			<input className={"form-input"} onChange={handleChange} {...otherProps} />
+			<input className={"form-input"} onChange={onChange} {...otherProps} />
 			{label ? <label className={"form-input-label"}>{label}</label> : null}
 		</div>
 	);
