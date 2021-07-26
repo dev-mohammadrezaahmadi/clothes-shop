@@ -10,6 +10,16 @@ export const StyledCollectionItem = styled.div<StyledCollectionItemProps>`
 	flex-direction: column;
 	height: 350px;
 	align-items: center;
+	position: relative;
+
+	.custom_button {
+		position: absolute;
+		display: none;
+		width: 100%;
+		opacity: 0.7;
+		bottom: 50px;
+		transform: translateX(25%);
+	}
 
 	.image {
 		width: 100%;
@@ -18,6 +28,17 @@ export const StyledCollectionItem = styled.div<StyledCollectionItemProps>`
 		background-size: cover;
 		background-position: center;
 		margin-bottom: 5px;
+	}
+
+	&:hover {
+		.image {
+			opacity: 0.8;
+		}
+
+		.custom_button {
+			display: flex;
+			opacity: 0.8;
+		}
 	}
 
 	.collection-footer {

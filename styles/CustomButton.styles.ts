@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { CustomButtonProps } from "./CustomButton.component";
+import { CustomButtonProps } from "../components/CustomButton";
 
 const buttonStyles = css`
 	background-color: black;
