@@ -1,32 +1,11 @@
 import firebase from "firebase";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-
-// import { UserActionTypes } from "./user.types";
-
-// const INITIAL_STATE = {
-// 	currentUser: null,
-// };
-
-// const userReducer = (state = INITIAL_STATE, action) => {
-// 	switch (action.type) {
-// 		case UserActionTypes.SET_CURRENT_USER:
-// 			return {
-// 				...state,
-// 				currentUser: action.payload,
-// 			};
-// 		default:
-// 			return state;
-// 	}
-// };
-
-// export default userReducer;
-
-export interface currentUserType extends firebase.firestore.DocumentData {
+interface currentUserType extends firebase.firestore.DocumentData {
 	id: string;
 }
 
-export interface userStateType {
+interface userStateType {
 	currentUser: currentUserType | null;
 }
 

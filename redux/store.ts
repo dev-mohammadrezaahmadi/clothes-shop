@@ -1,19 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./slices/user.reducer";
-// import { createStore } from "redux";
-// // import logger from "redux-logger";
-
-// import rootReducer from "./root-reducer";
-
-// // const middlewares = [logger];
-
-// const store = createStore(rootReducer);
-
-// export default store;
+import cartReducer from "./slices/cart.reducer";
 
 export const store = configureStore({
 	reducer: {
 		user: userReducer,
+		cart: cartReducer,
 	},
 });
 

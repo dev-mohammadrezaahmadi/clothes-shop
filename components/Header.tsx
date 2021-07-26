@@ -5,9 +5,13 @@ import { auth } from '../firebase/firebase.utils';
 import styles from '../styles/Header.module.scss'
 import { useAppSelector } from '../redux/hooks'
 import { selectCurrentUser } from '../redux/slices/user.reducer'
+import { selectCartHidden } from '../redux/slices/cart.reducer'
+import CartIcon from './CartIcon';
+import CartDropdowon from './CartDropdowon';
 
 const Header: React.FC = () => {
     const currentUser = useAppSelector(selectCurrentUser)
+    const hidden = useAppSelector(selectCartHidden)
     return (
         <div className={styles.header}>
             <Link passHref href="/">
@@ -40,7 +44,9 @@ const Header: React.FC = () => {
                         CONTACT
                     </a>
                 </Link>
+                <CartIcon />
             </div>
+            {hidden ? null : <CartDropdowon />}
         </div>
     )
 }
