@@ -50,4 +50,10 @@ export const cartSlice = createSlice({
 
 export const { toggleCartHidden, addItem } = cartSlice.actions;
 export const selectCartHidden = (state: RootState) => state.cart.hidden;
+export const selectCartItems = (state: RootState) => state.cart.cartItems;
+export const selectCartItemsCount = (state: RootState) =>
+	state.cart.cartItems.reduce(
+		(accQuantity, cartItem) => accQuantity + cartItem.quantity,
+		0
+	);
 export default cartSlice.reducer;
