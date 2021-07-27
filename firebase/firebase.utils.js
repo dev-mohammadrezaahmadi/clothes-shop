@@ -54,6 +54,12 @@ export const addCollectionAndDocumentsToDB = async (
 	return await batch.commit();
 };
 
+export const getCollectionsFromDB = async (collectionName) => {
+	const collectionRef = firestore.collection(collectionName);
+	const collections = (await collectionRef.get()).docs.map((doc) => doc.data());
+	return collections;
+};
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
