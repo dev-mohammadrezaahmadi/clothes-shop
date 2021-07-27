@@ -1,11 +1,17 @@
 import React from "react";
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+import {
+	addCollectionAndDocumentsToDB,
+	auth,
+	createUserProfileDocument,
+} from "../../firebase/firebase.utils";
 import { setCurrentUser } from "../../redux/slices/user.reducer";
 import { useAppDispatch } from "../../redux/hooks";
+import { selectCollectionsForPreview } from "../../redux/slices/shop.reducer";
+import { useAppSelector } from "../../redux/hooks";
 
 export default function AuthProvider({ children }) {
 	const dispatch = useAppDispatch();
-
+	const collectionsArray = useAppSelector(selectCollectionsForPreview);
 	React.useEffect(() => {
 		let unsubscribe = auth.onAuthStateChanged(async (user) => {
 			if (user) {
@@ -21,13 +27,21 @@ export default function AuthProvider({ children }) {
 				});
 			} else {
 				dispatch(setCurrentUser(user));
+				// addCollectionAndDocumentsToDB(
+				// 	"collections",
+				// 	collectionsArray.map(({ title, items, routeName }) => ({
+				// 		title,
+				// 		items,
+				// 		routeName,
+				// 	}))
+				// );
 			}
 		});
 
 		return () => {
 			unsubscribe();
 		};
-	}, [dispatch]);
+	}, []);
 
 	return <>{children}</>;
 }
