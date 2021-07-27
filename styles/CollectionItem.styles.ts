@@ -5,7 +5,7 @@ interface StyledCollectionItemProps {
 }
 
 export const StyledCollectionItem = styled.div<StyledCollectionItemProps>`
-	width: 22%;
+	width: 20vw;
 	display: flex;
 	flex-direction: column;
 	height: 350px;
