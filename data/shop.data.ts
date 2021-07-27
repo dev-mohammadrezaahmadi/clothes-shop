@@ -1,4 +1,4 @@
-export interface ShopDataItemsType {
+export interface CollectionDataItemsType {
 	id?: number;
 	name: string;
 	imageUrl: string;
@@ -6,15 +6,19 @@ export interface ShopDataItemsType {
 	quantity?: number;
 }
 
-export interface ShopDataType {
+export interface CollectionDataType {
 	id: number;
 	title: string;
 	routeName: string;
-	items: ShopDataItemsType[];
+	items: CollectionDataItemsType[];
 }
 
-export const SHOP_DATA: ShopDataType[] = [
-	{
+export interface ShopDataType {
+	[collection: string]: CollectionDataType;
+}
+
+export const SHOP_DATA: ShopDataType = {
+	hats: {
 		id: 1,
 		title: "Hats",
 		routeName: "hats",
@@ -75,7 +79,7 @@ export const SHOP_DATA: ShopDataType[] = [
 			},
 		],
 	},
-	{
+	sneakers: {
 		id: 2,
 		title: "Sneakers",
 		routeName: "sneakers",
@@ -130,7 +134,7 @@ export const SHOP_DATA: ShopDataType[] = [
 			},
 		],
 	},
-	{
+	jackets: {
 		id: 3,
 		title: "Jackets",
 		routeName: "jackets",
@@ -167,7 +171,7 @@ export const SHOP_DATA: ShopDataType[] = [
 			},
 		],
 	},
-	{
+	womens: {
 		id: 4,
 		title: "Womens",
 		routeName: "womens",
@@ -216,7 +220,7 @@ export const SHOP_DATA: ShopDataType[] = [
 			},
 		],
 	},
-	{
+	mens: {
 		id: 5,
 		title: "Mens",
 		routeName: "mens",
@@ -259,4 +263,4 @@ export const SHOP_DATA: ShopDataType[] = [
 			},
 		],
 	},
-];
+};

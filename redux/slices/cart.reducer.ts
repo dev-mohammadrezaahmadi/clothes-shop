@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-import type { ShopDataItemsType, ShopDataType } from "../../data/shop.data";
+import type { CollectionDataItemsType } from "../../data/shop.data";
 
 const addItemToCart = (
-	cartItems: ShopDataItemsType[],
-	cartItemToAdd: ShopDataItemsType
+	cartItems: CollectionDataItemsType[],
+	cartItemToAdd: CollectionDataItemsType
 ) => {
 	const existingCartItem = cartItems.find(
 		(cartItem) => cartItem.id === cartItemToAdd.id
@@ -26,8 +26,8 @@ const addItemToCart = (
 };
 
 const removeItemFromCart = (
-	cartItems: ShopDataItemsType[],
-	cartItemToRemove: ShopDataItemsType
+	cartItems: CollectionDataItemsType[],
+	cartItemToRemove: CollectionDataItemsType
 ) => {
 	const existingCartItem = cartItems.find(
 		(cartItem) => cartItem.id === cartItemToRemove.id

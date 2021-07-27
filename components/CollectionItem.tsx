@@ -1,11 +1,11 @@
-import { ShopDataItemsType } from "../data/shop.data";
+import { CollectionDataItemsType } from "../data/shop.data";
 import { StyledCollectionItem } from '../styles/CollectionItem.styles'
 import CustomButton from "./CustomButton";
 import { addItem } from '../redux/slices/cart.reducer'
 import { useAppDispatch } from '../redux/hooks'
 
 interface CollectionItemProps {
-	item: ShopDataItemsType
+	item: CollectionDataItemsType
 }
 
 const CollectionItem: React.FC<CollectionItemProps> = ({
