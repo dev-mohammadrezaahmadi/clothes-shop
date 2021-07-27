@@ -1,11 +1,18 @@
 import CollectionItem from '../../components/CollectionItem'
-import { selectCollection } from '../../redux/slices/shop.reducer'
-import { useAppSelector } from '../../redux/hooks'
-import { SHOP_DATA } from '../../data/shop.data'
 import styles from '../../styles/Collection.module.scss'
+import { getCollectionsFromDB } from '../../firebase/firebase.utils'
+import { CollectionDataType } from '../../data/shop.data'
+interface CollectoinPageProps {
+    params: {
+        id: string
+    }
+    collection: CollectionDataType
+}
 
-const CollectionPage = ({ params: { id } }: { params: { id: string } }) => {
-    const { title, items } = useAppSelector(selectCollection(id))
+const CollectionPage: React.FC<CollectoinPageProps> = ({ params, collection }) => {
+    const { title, items } = collection
+    console.log(params)
+    console.log(collection)
     return (
         <div className={styles.collection_page}>
             <h2 className={styles.title}>{title}</h2>
@@ -18,16 +25,20 @@ const CollectionPage = ({ params: { id } }: { params: { id: string } }) => {
     )
 }
 
-export function getStaticProps({ params }: { params: any }) {
+export async function getStaticProps({ params }: { params: { id: string } }) {
+    const collections = await getCollectionsFromDB('collections')
+    const collection = collections.find(collection => collection.routeName === params.id)
     return {
         props: {
-            params
+            params,
+            collection
         }
     }
 }
 
-export function getStaticPaths() {
-    const paths = Object.keys(SHOP_DATA).map(key => ({ params: { id: key } }))
+export async function getStaticPaths() {
+    const collections = await getCollectionsFromDB('collections')
+    const paths = collections.map(collection => ({ params: { id: collection.routeName } }))
     return {
         paths,
         fallback: false

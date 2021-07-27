@@ -1,11 +1,12 @@
 import CollectionPreview from "./CollectionPreview";
-import { selectCollectionsForPreview } from '../redux/slices/shop.reducer'
-import { useAppSelector } from '../redux/hooks'
-
+import { CollectionDataType } from '../data/shop.data'
 import styles from '../styles/CollectionOverview.module.scss'
 
-const CollectionOverview = () => {
-    const collections = useAppSelector(selectCollectionsForPreview)
+interface CollectionOverviewProps {
+    collections: CollectionDataType[]
+}
+
+const CollectionOverview: React.FC<CollectionOverviewProps> = ({ collections }) => {
 
     return (
         <div className={styles.collections_overview}>
