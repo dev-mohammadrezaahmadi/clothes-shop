@@ -23,19 +23,12 @@ export const userSlice = createSlice({
 			state.currentUser = action.payload;
 		},
 		googleSignInStart: (state, action) => {},
-		googleSignInSuccess: (state, action) => {
+		emailSignInStart: (state, action) => {},
+		signInSuccess: (state, action) => {
 			state.currentUser = action.payload;
 			state.error = null;
 		},
-		googleSignInFailure: (state, action) => {
-			state.error = action.payload;
-		},
-		emailSignInStart: (state, action) => {},
-		emailSignInSuccess: (state, action) => {
-			state.currentUser = action.payload;
-			state.currentUser = null;
-		},
-		emailSignInFailure: (state, action) => {
+		signInFailure: (state, action) => {
 			state.error = action.payload;
 		},
 	},
@@ -44,11 +37,9 @@ export const userSlice = createSlice({
 export const {
 	setCurrentUser,
 	googleSignInStart,
-	googleSignInSuccess,
-	googleSignInFailure,
 	emailSignInStart,
-	emailSignInSuccess,
-	emailSignInFailure,
+	signInSuccess,
+	signInFailure,
 } = userSlice.actions;
 export const selectCurrentUser = (state: RootState) => state.user.currentUser;
 export default userSlice.reducer;
