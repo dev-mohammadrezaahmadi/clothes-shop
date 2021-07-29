@@ -5,6 +5,9 @@ import {
 	signInSuccess,
 	signInFailure,
 	checkUserSession,
+	signOutSuccess,
+	signOutFailure,
+	signOutStart,
 } from "../slices/user.reducer";
 import {
 	auth,
@@ -55,6 +58,19 @@ export function* isUserAuthenticated(): any {
 	}
 }
 
+export function* signOut() {
+	try {
+		yield auth.signOut();
+		yield put(signOutSuccess());
+	} catch (error) {
+		yield put(signOutFailure(error));
+	}
+}
+
+export function* onSignOutStart() {
+	yield takeLatest(signOutStart, signOut);
+}
+
 export function* onCheckUserSession() {
 	yield takeLatest(checkUserSession, isUserAuthenticated);
 }
@@ -68,5 +84,10 @@ export function* onEmailSignInStart() {
 }
 
 export function* userSagas() {
-	yield all([call(onGoogleSignInStart), call(onEmailSignInStart)]);
+	yield all([
+		call(onGoogleSignInStart),
+		call(onEmailSignInStart),
+		call(onCheckUserSession),
+		call(onSignOutStart),
+	]);
 }
