@@ -4,11 +4,13 @@ import {
 	emailSignInStart,
 	signInSuccess,
 	signInFailure,
+	checkUserSession,
 } from "../slices/user.reducer";
 import {
 	auth,
 	googleProvider,
 	createUserProfileDocument,
+	getCurrentUser,
 } from "../../firebase/firebase.utils";
 
 export function* getSnapshotFromUserAuth(userAuth: any): any {
@@ -41,6 +43,20 @@ export function* signInWithEmail({
 	} catch (error) {
 		put(signInFailure(error));
 	}
+}
+
+export function* isUserAuthenticated(): any {
+	try {
+		const userAuth = yield getCurrentUser();
+		if (!userAuth) return;
+		yield getSnapshotFromUserAuth(userAuth);
+	} catch (error) {
+		yield put(signInFailure(error));
+	}
+}
+
+export function* onCheckUserSession() {
+	yield takeLatest(checkUserSession, isUserAuthenticated);
 }
 
 export function* onGoogleSignInStart() {
