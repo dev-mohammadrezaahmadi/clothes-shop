@@ -1,16 +1,27 @@
 import firebase from "firebase";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-interface currentUserType extends firebase.firestore.DocumentData {
+import { SnapshotFromUserType } from "../sagas/user.saga";
+export interface currentUserType extends firebase.firestore.DocumentData {
 	id: string;
 }
 
-interface userStateType {
+export interface SignInWithEmailActionPayloadType {
+	email: string;
+	password: string;
+}
+
+export interface SignUpActionPayloadType
+	extends SignInWithEmailActionPayloadType {
+	displayName: string;
+}
+
+export interface userStateType {
 	currentUser: currentUserType | null;
 	error: string | null;
 }
 
-const initialState: userStateType = {
+export const initialState: userStateType = {
 	currentUser: null,
 	error: null,
 };
@@ -23,7 +34,10 @@ export const userSlice = createSlice({
 			state.currentUser = action.payload;
 		},
 		googleSignInStart: () => {},
-		emailSignInStart: (state, action) => {},
+		emailSignInStart: (
+			_,
+			action: PayloadAction<SignInWithEmailActionPayloadType>
+		) => {},
 
 		// Sign out reducer
 		signOutStart: () => {},
@@ -35,8 +49,8 @@ export const userSlice = createSlice({
 			state.error = action.payload;
 		},
 		// Sign up reducer
-		signUpStart: (state, action) => {},
-		signUpSuccess: (state, action) => {},
+		signUpStart: (_, action: PayloadAction<SignUpActionPayloadType>) => {},
+		signUpSuccess: (_, action: PayloadAction<SnapshotFromUserType>) => {},
 		signUpFailure: (state, action) => {
 			state.error = action.payload;
 		},

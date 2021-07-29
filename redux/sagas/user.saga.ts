@@ -19,8 +19,19 @@ import {
 	getCurrentUser,
 } from "../../firebase/firebase.utils";
 
+import type {
+	SignInWithEmailActionPayloadType,
+	SignUpActionPayloadType,
+} from "../slices/user.reducer";
+import type { PayloadAction } from "@reduxjs/toolkit";
+
+export interface SnapshotFromUserType {
+	user: unknown;
+	additionalData?: any;
+}
+
 export function* getSnapshotFromUserAuth(
-	userAuth: any,
+	userAuth: unknown,
 	additionalData?: any
 ): any {
 	try {
@@ -45,7 +56,9 @@ export function* signInWithGoogle(): any {
 	}
 }
 
-export function* signInWithEmail(action: any): any {
+export function* signInWithEmail(
+	action: PayloadAction<SignInWithEmailActionPayloadType>
+): any {
 	try {
 		const { email, password } = action.payload;
 		const { user } = yield auth.signInWithEmailAndPassword(email, password);
@@ -74,7 +87,7 @@ export function* signOut() {
 	}
 }
 
-export function* signUp(action: any): any {
+export function* signUp(action: PayloadAction<SignUpActionPayloadType>): any {
 	const { email, password, displayName } = action.payload;
 	try {
 		const { user } = yield auth.createUserWithEmailAndPassword(email, password);
@@ -84,7 +97,9 @@ export function* signUp(action: any): any {
 	}
 }
 
-export function* signInAfterSignUp(action: any) {
+export function* signInAfterSignUp(
+	action: PayloadAction<SnapshotFromUserType>
+) {
 	const { user, additionalData } = action.payload;
 	yield getSnapshotFromUserAuth(user, additionalData);
 }
