@@ -4,8 +4,11 @@ import toast from 'react-hot-toast'
 import FormInput from './FormInput'
 import CustomButton from './CustomButton'
 import styles from '../styles/SignUp.module.scss'
+import { signUpStart } from '../redux/slices/user.reducer'
+import { useAppDispatch } from '../redux/hooks'
 
 const SignUp: React.FC = () => {
+    const dispatch = useAppDispatch()
     const [userCredential, setUserCredential] = React.useState({
         displayName: '',
         email: '',
@@ -14,37 +17,21 @@ const SignUp: React.FC = () => {
     })
     const { displayName, confirmPassword, password, email } = userCredential
 
-    const handleSubmit: React.FormEventHandler<HTMLFormElement> = async event => {
-
+    const handleSubmit: React.FormEventHandler<HTMLFormElement> = event => {
         event.preventDefault()
-
-
         if (password !== confirmPassword) {
             toast.error("The passwords don't match")
             setUserCredential({ ...userCredential, password: '', confirmPassword: '' })
             return
         }
-
-        try {
-            const { user } = await auth.createUserWithEmailAndPassword(email, password)
-
-            await createUserProfileDocument(user, { displayName })
-
-            setUserCredential({
-                displayName: '',
-                email: '',
-                password: '',
-                confirmPassword: ''
-            })
-        } catch (error) {
-            console.error(error)
-        }
+        dispatch(signUpStart({ email, password, displayName }))
+        setUserCredential({ ...userCredential, email: '', password: '', confirmPassword: '', displayName: '' })
     }
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
         const { name, value } = event.target
-
         setUserCredential({ ...userCredential, [name]: value })
+        console.log(displayName)
     }
 
     return (

@@ -8,10 +8,13 @@ import { selectCurrentUser } from '../redux/slices/user.reducer'
 import { selectCartHidden } from '../redux/slices/cart.reducer'
 import CartIcon from './CartIcon';
 import CartDropdowon from './CartDropdowon';
+import { signOutStart } from '../redux/slices/user.reducer'
+import { useAppDispatch } from '../redux/hooks'
 
 const Header: React.FC = () => {
     const currentUser = useAppSelector(selectCurrentUser)
     const hidden = useAppSelector(selectCartHidden)
+    const dispatch = useAppDispatch()
     return (
         <div className={styles.header}>
             <Link passHref href="/">
@@ -27,7 +30,7 @@ const Header: React.FC = () => {
                 </Link>
                 {
                     currentUser ? (
-                        <div className={styles.option} onClick={() => auth.signOut()}>
+                        <div className={styles.option} onClick={() => dispatch(signOutStart())}>
                             SIGN OUT
                         </div>
                     ) : (
