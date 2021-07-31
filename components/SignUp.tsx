@@ -49,9 +49,9 @@ const SignUp: React.FC = () => {
 
     return (
 
-        <div className={styles.sign_up}>
-            <h2 className={styles.title}>I do not have a account</h2>
-            <span>Sign up with your email and password</span>
+        <div className="w-full sm:w-1/2 flex flex-col">
+            <h2 className="text-xl font-bold">I do not have a account</h2>
+            <span className="italic">Sign up with your email and password</span>
             <form className={styles.sign_up_form} onSubmit={handleSubmit}>
                 <FormInput
                     type='text'

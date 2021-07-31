@@ -19,20 +19,20 @@ const Header: React.FC = () => {
                     <Image alt="logo" src="/crown.svg" width={'100%'} height={'100%'} className="cursor-pointer object-contain" />
                 </div>
             </Link>
-            <div className="w-4/5 h-full flex items-center justify-end text-sm md:text-xl">
+            <div className="w-4/5 h-full flex items-center justify-end text-sm sm:text-xl ">
                 <Link href='/shop'>
-                    <a className="p-1 cursor-pointer mx-1 font-semibold md:font-normal md:mx-6">
+                    <a className="p-1 cursor-pointer mx-1 font-semibold sm:font-normal md:mx-6">
                         SHOP
                     </a>
                 </Link>
                 {
                     currentUser ? (
-                        <div className="p-1 cursor-pointer mx-1 font-semibold md:font-normal md:mx-6" onClick={() => auth.signOut()}>
+                        <div className="p-1 cursor-pointer mx-1 font-semibold sm:font-normal md:mx-6" onClick={() => auth.signOut()}>
                             SIGN OUT
                         </div>
                     ) : (
                         <Link href='/enter'>
-                            <a className="p-1 cursor-pointer mx-1 font-semibold md:font-normal md:mx-6">
+                            <a className="p-1 cursor-pointer mx-1 font-semibold sm:font-normal md:mx-6">
                                 SIGN IN
                             </a>
                         </Link>
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
                 }
 
                 <Link href='/shop'>
-                    <a className="py-1 pl-1 cursor-pointer mx-1 font-semibold md:font-normal md:mx-6">
+                    <a className="py-1 pl-1 cursor-pointer mx-1 font-semibold sm:font-normal md:mx-6">
                         CONTACT
                     </a>
                 </Link>

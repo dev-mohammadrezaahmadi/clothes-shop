@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.item-size-responsive {
+		@apply sm:w-item-sm-width md:w-item-md-width lg:w-item-lg-width h-item-height sm:h-item-sm-height md:h-item-md-height lg:h-item-lg-height;
+	}
+}
+
 /* html,
 body {
 

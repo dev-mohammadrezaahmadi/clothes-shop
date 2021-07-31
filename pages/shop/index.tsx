@@ -7,7 +7,7 @@ interface ShopPageProps {
 const Shop: React.FC<ShopPageProps> = ({ collections }) => {
 
     return (
-        <div className="shop_page">
+        <div className="px-4">
             <CollectionOverview collections={collections} />
         </div>
     );
