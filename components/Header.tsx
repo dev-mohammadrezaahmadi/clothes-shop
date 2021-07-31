@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
 import { auth } from '../firebase/firebase.utils';
-import styles from '../styles/Header.module.scss'
 import { useAppSelector } from '../redux/hooks'
 import { selectCurrentUser } from '../redux/slices/user.reducer'
 import { selectCartHidden } from '../redux/slices/cart.reducer'

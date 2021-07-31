@@ -2,7 +2,6 @@ import React from "react";
 import { auth, signInWithGoogle } from '../firebase/firebase.utils'
 import FormInput from "./FormInput";
 import CustomButton from "./CustomButton";
-import styles from "../styles/SignIn.module.scss";
 
 
 const SignIn: React.FC = () => {

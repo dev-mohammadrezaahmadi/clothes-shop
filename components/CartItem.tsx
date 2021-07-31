@@ -1,18 +1,17 @@
-import styles from '../styles/CartItem.module.scss'
-import { ShopDataItemsType } from '../data/shop.data'
+import { CollectionDataItemsType } from '../data/shop.data'
 import Image from 'next/image'
 
 interface CartItemProps {
-    item: ShopDataItemsType
+    item: CollectionDataItemsType
 }
 
 const CartItem: React.FC<CartItemProps> = ({ item: { imageUrl, price, name, quantity } }) => {
     return (
-        <div className={styles.cart_item}>
+        <div className="w-full flex mb-4 h-20">
             <Image width={'70%'} height={'100%'} src={imageUrl} alt="item" />
-            <div className={styles.item_details}>
-                <span className={styles.name}>{name}</span>
-                <span className={styles.price}>
+            <div className="w-3/4 flex flex-col items-start justify-center px-5 py-3">
+                <span className="text-xl">{name}</span>
+                <span className="text-xl">
                     {quantity} x ${price}
                 </span>
             </div>

@@ -3,7 +3,6 @@ import { auth, createUserProfileDocument } from '../firebase/firebase.utils'
 import toast from 'react-hot-toast'
 import FormInput from './FormInput'
 import CustomButton from './CustomButton'
-import styles from '../styles/SignUp.module.scss'
 
 const SignUp: React.FC = () => {
     const [userCredential, setUserCredential] = React.useState({
@@ -52,7 +51,7 @@ const SignUp: React.FC = () => {
         <div className="w-full sm:w-1/2 flex flex-col">
             <h2 className="text-xl font-bold">I do not have a account</h2>
             <span className="italic">Sign up with your email and password</span>
-            <form className={styles.sign_up_form} onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <FormInput
                     type='text'
                     name='displayName'

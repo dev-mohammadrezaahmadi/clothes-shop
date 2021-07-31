@@ -1,4 +1,3 @@
-import { StyledMenuItem } from '../styles/MenuItem.styles'
 import { useRouter } from 'next/router'
 interface MenuItemProps {
 	imageUrl: string;
