@@ -28,14 +28,14 @@ export const DIRECTORY: DirectoryTypes[] = [
 	{
 		title: "womens",
 		imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-		size: "large",
+		size: "row",
 		id: 4,
 		linkUrl: "shop/womens",
 	},
 	{
 		title: "mens",
 		imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-		size: "large",
+		size: "col",
 		id: 5,
 		linkUrl: "shop/mens",
 	},
