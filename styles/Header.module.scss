@@ -1,9 +1,10 @@
 .header {
-	height: 70px;
+	height: 10%;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 25px;
+	// margin-bottom: 25px;
+	border: 2px red solid;
 
 	.logo_container {
 		height: 100%;

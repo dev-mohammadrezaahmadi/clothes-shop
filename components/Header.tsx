@@ -13,26 +13,26 @@ const Header: React.FC = () => {
     const currentUser = useAppSelector(selectCurrentUser)
     const hidden = useAppSelector(selectCartHidden)
     return (
-        <div className={styles.header}>
+        <div style={{ height: '10%' }} className="w-full md:px-16 md:pt-8 px-4 flex justify-between shadow-lg md:shadow-none">
             <Link passHref href="/">
-                <div className={styles.logo_container}>
-                    <Image alt="logo" src="/crown.svg" width={'100%'} height={'100%'} className={styles.logo} />
+                <div className="flex items-center h-full w-12 md:w-16 p-1">
+                    <Image alt="logo" src="/crown.svg" width={'100%'} height={'100%'} className="cursor-pointer object-contain" />
                 </div>
             </Link>
-            <div className={styles.options}>
+            <div className="w-4/5 h-full flex items-center justify-end text-sm md:text-xl">
                 <Link href='/shop'>
-                    <a className={styles.option}>
+                    <a className="p-1 cursor-pointer mx-1 font-semibold md:font-normal md:mx-6">
                         SHOP
                     </a>
                 </Link>
                 {
                     currentUser ? (
-                        <div className={styles.option} onClick={() => auth.signOut()}>
+                        <div className="p-1 cursor-pointer mx-1 font-semibold md:font-normal md:mx-6" onClick={() => auth.signOut()}>
                             SIGN OUT
                         </div>
                     ) : (
                         <Link href='/enter'>
-                            <a className={styles.option}>
+                            <a className="p-1 cursor-pointer mx-1 font-semibold md:font-normal md:mx-6">
                                 SIGN IN
                             </a>
                         </Link>
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
                 }
 
                 <Link href='/shop'>
-                    <a className={styles.option}>
+                    <a className="py-1 pl-1 cursor-pointer mx-1 font-semibold md:font-normal md:mx-6">
                         CONTACT
                     </a>
                 </Link>
