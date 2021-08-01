@@ -76,11 +76,19 @@ export const cartSlice = createSlice({
 				(cartItem) => cartItem.id !== action.payload.id
 			);
 		},
+		clearCart: (state) => {
+			state.cartItems = [];
+		},
 	},
 });
 
-export const { toggleCartHidden, addItem, removeItem, clearItemFromCart } =
-	cartSlice.actions;
+export const {
+	toggleCartHidden,
+	addItem,
+	removeItem,
+	clearItemFromCart,
+	clearCart,
+} = cartSlice.actions;
 export const selectCartHidden = (state: RootState) => state.cart.hidden;
 export const selectCartItems = (state: RootState) => state.cart.cartItems;
 export const selectCartItemsCount = (state: RootState) =>
