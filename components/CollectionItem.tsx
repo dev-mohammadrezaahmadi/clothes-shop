@@ -15,7 +15,7 @@ const CollectionItem: React.FC<CollectionItemProps> = ({
 	return (
 		<div className="flex flex-col flex-shrink-0 group items-center relative item-size-responsive">
 			<div className="w-full h-full bg-cover bg-center group-hover:opacity-80">
-				<Image src={imageUrl} layout="fill" alt="items photo" />
+				<Image placeholder="blur" blurDataURL={imageUrl} src={imageUrl} layout="fill" alt="items photo" />
 			</div>
 			<div className="absolute bottom-24 opacity-0 group-hover:opacity-80">
 				<CustomButton onClick={() => dispatch(addItem(item))} inverted={true}>Add to cart</CustomButton>

@@ -13,7 +13,7 @@ const CheckoutItem: React.FC<CheckoutItemProps> = ({ cartItem }) => {
     return (
         <div className="w-full flex border-b-2 border-gray-300 py-4 items-center">
             <div className="w-1/4 pr-3 mt-2">
-                <Image src={imageUrl} className="rounded-full" alt="item" width="100%" height="100%" />
+                <Image placeholder="blur" blurDataURL={imageUrl} src={imageUrl} className="rounded-full" alt="item" width="100%" height="100%" />
             </div>
             <span className="w-1/4 text-xs sm:text-xl lg:text-2xl">{name}</span>
             <span className="w-1/4 flex px-8">
