@@ -30,7 +30,6 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
     const collection = collections.find(collection => collection.routeName === params.id)
     return {
         props: {
-            params,
             collection
         }
     }
