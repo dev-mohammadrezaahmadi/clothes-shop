@@ -12,15 +12,15 @@ const CartDropdowon = () => {
     const dispatch = useAppDispatch()
     const { push } = useRouter()
     return (
-        <div className={styles.cart_dropdown}>
-            <div className={styles.cart_items}>
+        <div className="absolute w-72 h-96 flex flex-col items-center p-5 border border-black bg-white top-24 right-4 z-50">
+            <div className="flex w-full h-80 flex-col overflow-y-scroll mb-4">
                 {
                     cartItems.length ? (
                         cartItems.map(cartItem => (
                             <CartItem key={cartItem.id} item={cartItem} />
                         ))
                     ) : (
-                        <span className={styles.empty_message}>Your cart is empty</span>
+                        <span className="mt-24 font-bold mx-auto">Your cart is empty</span>
                     )
                 }
             </div>

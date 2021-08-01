@@ -1,8 +1,6 @@
 import React from "react";
-import { auth, signInWithGoogle } from '../firebase/firebase.utils'
 import FormInput from "./FormInput";
 import CustomButton from "./CustomButton";
-import styles from "../styles/SignIn.module.scss";
 import { useAppDispatch } from '../redux/hooks'
 import { googleSignInStart, emailSignInStart } from '../redux/slices/user.reducer'
 
@@ -26,9 +24,9 @@ const SignIn: React.FC = () => {
 		setUserCredential({ ...userCredential, [name]: value });
 	};
 	return (
-		<div className={styles.sign_in}>
-			<h2 className={styles.title}>I already have an account</h2>
-			<span >Sign in with your email and password</span>
+		<div className="w-full sm:w-1/2 flex flex-col">
+			<h2 className="text-xl font-bold">I already have an account</h2>
+			<span className="italic" >Sign in with your email and password</span>
 
 			<form onSubmit={handleSubmit}>
 				<FormInput
@@ -47,7 +45,7 @@ const SignIn: React.FC = () => {
 					label="password"
 					required
 				/>
-				<div className={styles.buttons}>
+				<div className="flex flex-col w-full items-center gap-2">
 					<CustomButton type="submit"> Sign in </CustomButton>
 					<CustomButton type="button" onClick={() => dispatch(googleSignInStart())} isGoogleSignIn={true}> Sign in with GOOGLE</CustomButton>
 				</div>

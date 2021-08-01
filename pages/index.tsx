@@ -1,4 +1,3 @@
-import styles from '../styles/Home.module.scss'
 import DirectoryMenu from '../components/Directory'
 import { getCollectionsFromDB } from '../firebase/firebase.utils'
 import { DirectoryTypes } from '../data/directory.data'
@@ -9,7 +8,7 @@ interface HomePageProps {
 
 export const Home: React.FC<HomePageProps> = ({ selections }) => {
   return (
-    <div className={styles.home_page}>
+    <div className="h-full flex flex-col justify-center px-4">
       <DirectoryMenu selections={selections} />
     </div>
   )

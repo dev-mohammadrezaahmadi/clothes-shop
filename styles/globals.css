@@ -1,7 +1,18 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.item-size-responsive {
+		@apply sm:w-item-sm-width md:w-item-md-width lg:w-item-lg-width h-item-height sm:h-item-sm-height md:h-item-md-height lg:h-item-lg-height;
+	}
+}
+
+/* html,
 body {
-	padding: 20px 60px;
+
 	margin: 0;
+	padding: 0;
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -13,7 +24,7 @@ a {
 
 * {
 	box-sizing: border-box;
-}
+} */
 
 /* Overriding the nprogress styles */
 #nprogress .bar {

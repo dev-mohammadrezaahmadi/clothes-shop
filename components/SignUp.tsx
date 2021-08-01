@@ -1,9 +1,7 @@
 import React from 'react'
-import { auth, createUserProfileDocument } from '../firebase/firebase.utils'
 import toast from 'react-hot-toast'
 import FormInput from './FormInput'
 import CustomButton from './CustomButton'
-import styles from '../styles/SignUp.module.scss'
 import { signUpStart } from '../redux/slices/user.reducer'
 import { useAppDispatch } from '../redux/hooks'
 
@@ -36,10 +34,10 @@ const SignUp: React.FC = () => {
 
     return (
 
-        <div className={styles.sign_up}>
-            <h2 className={styles.title}>I do not have a account</h2>
-            <span>Sign up with your email and password</span>
-            <form className={styles.sign_up_form} onSubmit={handleSubmit}>
+        <div className="w-full sm:w-1/2 flex flex-col">
+            <h2 className="text-xl font-bold">I do not have a account</h2>
+            <span className="italic">Sign up with your email and password</span>
+            <form onSubmit={handleSubmit}>
                 <FormInput
                     type='text'
                     name='displayName'

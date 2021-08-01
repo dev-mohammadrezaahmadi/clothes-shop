@@ -1,5 +1,4 @@
 import CollectionItem from '../../components/CollectionItem'
-import styles from '../../styles/Collection.module.scss'
 import { getCollectionsFromDB } from '../../firebase/firebase.utils'
 import { CollectionDataType } from '../../data/shop.data'
 interface CollectoinPageProps {
@@ -11,12 +10,10 @@ interface CollectoinPageProps {
 
 const CollectionPage: React.FC<CollectoinPageProps> = ({ params, collection }) => {
     const { title, items } = collection
-    console.log(params)
-    console.log(collection)
     return (
-        <div className={styles.collection_page}>
-            <h2 className={styles.title}>{title}</h2>
-            <div className={styles.items}>
+        <div className="flex flex-col items-center p-4">
+            <h2 className="font-extrabold text-4xl my-10">{title.toUpperCase()}</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2 overflow-hidden w-full sm:place-items-center">
                 {items.map(item => (
                     <CollectionItem key={item.id} item={item} />
                 ))}
