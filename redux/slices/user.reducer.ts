@@ -1,9 +1,11 @@
-import firebase from "firebase";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
 import { SnapshotFromUserType } from "../sagas/user.saga";
-export interface currentUserType extends firebase.firestore.DocumentData {
+export interface currentUserType {
 	id: string;
+	createdAt: any;
+	displayName: string;
+	email: string;
 }
 
 export interface SignInWithEmailActionPayloadType {

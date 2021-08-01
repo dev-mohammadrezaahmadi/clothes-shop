@@ -40,11 +40,7 @@ const Header: React.FC = () => {
                     )
                 }
 
-                <Link href='/shop'>
-                    <a className="py-1 pl-1 cursor-pointer mx-1 font-semibold sm:font-normal md:mx-6">
-                        CONTACT
-                    </a>
-                </Link>
+
                 <CartIcon />
             </div>
             {hidden ? null : <CartDropdowon />}

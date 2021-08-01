@@ -18,7 +18,7 @@ export async function getStaticProps() {
   const selections = await getCollectionsFromDB('selections')
   return {
     props: {
-      selections
+      selections: selections.sort((a, b) => a.id - b.id)
     }
   }
 }

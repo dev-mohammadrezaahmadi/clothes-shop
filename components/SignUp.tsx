@@ -29,7 +29,6 @@ const SignUp: React.FC = () => {
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
         const { name, value } = event.target
         setUserCredential({ ...userCredential, [name]: value })
-        console.log(displayName)
     }
 
     return (
