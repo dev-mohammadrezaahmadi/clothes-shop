@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import CollectionOverview from '../../components/CollectionOverview'
 import { getCollectionsFromDB } from '../../firebase/firebase.utils';
 import { CollectionDataType } from '../../data/shop.data'
@@ -7,9 +8,14 @@ interface ShopPageProps {
 const Shop: React.FC<ShopPageProps> = ({ collections }) => {
 
     return (
-        <div className="px-4">
-            <CollectionOverview collections={collections} />
-        </div>
+        <>
+            <Head>
+                <title>Collections</title>
+            </Head>
+            <div className="px-4">
+                <CollectionOverview collections={collections} />
+            </div>
+        </>
     );
 };
 
